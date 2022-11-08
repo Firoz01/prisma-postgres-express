@@ -1,14 +1,14 @@
 version: '3.8'
 services:
-  postgres:
-    image: postgres:10.3
-    restart: always
+  database:
+    image: postgres
     environment:
-      - POSTGRES_USER=firoz
-      - POSTGRES_PASSWORD=pass1234
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB = nodeauth
     volumes:
-      - postgres:/var/lib/postgresql/data
+      - ./pgdata:/var/lib/postgresql/data
     ports:
       - '5432:5432'
 volumes:
-  postgres:
+  pgdata:
